@@ -6,7 +6,7 @@ def print_field(matrix):
 
 
 def check_winner(matrix):
-    # строки
+    # проверяем строки
     if matrix[0].count('x') == 3:
         return 1
     if matrix[1].count('x') == 3:
@@ -21,7 +21,7 @@ def check_winner(matrix):
     if matrix[2].count('o') == 3:
         return 2
 
-    # столбцы
+    # проверяем столбцы
     if matrix[0][0] == matrix[1][0] == matrix[2][0] == 'x':
         return 1
     if matrix[0][1] == matrix[1][1] == matrix[2][1] == 'x':
@@ -36,7 +36,7 @@ def check_winner(matrix):
     if matrix[0][2] == matrix[1][2] == matrix[2][2] == 'o':
         return 2
 
-    # диагонали
+    # проверяем диагонали
     if matrix[0][0] == matrix[1][1] == matrix[2][2] == 'x':
         return 1
     if matrix[0][2] == matrix[1][1] == matrix[2][0] == 'x':
@@ -61,6 +61,7 @@ step_count = 0
 winner = None
 
 print("Добро пожаловать в игру Крестики-Нолики!")
+
 while winner is None:
     print_field(field)
 
@@ -85,8 +86,8 @@ while winner is None:
                 print("Данное поле уже занято.")
                 print("Сделайте ход в пустое поле.")
         else:
-            print("Неверная координата.")
-            print("Координаты должны состоять из чисел 0, 1 или 2.")
+            print("Неверные координаты.")
+            print("Каждая координата должна быть числом 0, 1 или 2.")
             print("Попробуйте ещё раз.")
 
     if side == 1:
@@ -109,6 +110,7 @@ while winner is None:
 print_field(field)
 
 print("Игра завершена. Результат:")
+
 if winner == 1:
     print(f"Победил Крестик на {step_count} ходу")
 elif winner == 2:
